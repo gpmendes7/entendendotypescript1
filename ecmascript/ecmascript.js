@@ -1,17 +1,12 @@
 "use strict";
-var __spreadArray = (this && this.__spreadArray) || function (to, from) {
-    for (var i = 0, il = from.length, j = to.length; i < il; i++, j++)
-        to[j] = from[i];
-    return to;
-};
-var seraQuePode = '?';
+let seraQuePode = '?';
 console.log(seraQuePode);
-var estaFrio = true;
+let estaFrio = true;
 if (estaFrio) {
-    var acao = 'Colocar o casaco!';
+    let acao = 'Colocar o casaco!';
     console.log(acao);
 }
-var cpf = '123.456.000-99';
+const cpf = '123.456.000-99';
 //cpf = '789.101.132-78'
 console.log(cpf);
 var segredo = 'externo!';
@@ -23,11 +18,11 @@ revelar();
 console.log(segredo);
 {
     {
-        var def = 'def';
+        const def = 'def';
         console.log(def);
     }
 }
-for (var i = 0; i < 10; i++) {
+for (let i = 0; i < 10; i++) {
     console.log(i);
 }
 //console.log(i)
@@ -35,11 +30,11 @@ function somar(n1, n2) {
     return n1 + n2;
 }
 console.log(somar(2, 2));
-var subtrair = function (n1, n2) { return n1 - n2; };
+const subtrair = (n1, n2) => n1 - n2;
 console.log(subtrair(2, 3));
-var saudacao = function () { return console.log("Olá!"); };
+const saudacao = () => console.log("Olá!");
 saudacao();
-var falarCom = function (pessoa) { return console.log('Ola ' + pessoa); };
+const falarCom = (pessoa) => console.log('Ola ' + pessoa);
 falarCom('João');
 // function normalComThis() {
 //    console.log(this)
@@ -53,9 +48,7 @@ falarCom('João');
 // const arrowComThisEspecial = arrowComThis
 //    .bind({ nome: 'Ana' })
 // arrowComThisEspecial()
-function contagemRegressiva(inicio, fim) {
-    if (inicio === void 0) { inicio = 5; }
-    if (fim === void 0) { fim = inicio - 5; }
+function contagemRegressiva(inicio = 5, fim = inicio - 5) {
     console.log(inicio);
     while (inicio > fim) {
         inicio--;
@@ -65,80 +58,74 @@ function contagemRegressiva(inicio, fim) {
 }
 contagemRegressiva();
 contagemRegressiva(3);
-var numbers = [1, 10, 99, -5, 200, 1034];
-console.log(Math.max.apply(Math, numbers));
-var turmaA = ['João', 'Maria', 'Fernanda'];
-var turmaB = __spreadArray(__spreadArray(['Fernado'], turmaA), ['Miguel', 'Lorena']);
+const numbers = [1, 10, 99, -5, 200, 1034];
+console.log(Math.max(...numbers));
+const turmaA = ['João', 'Maria', 'Fernanda'];
+const turmaB = ['Fernado', ...turmaA, 'Miguel', 'Lorena'];
 console.log(turmaB);
-function retornarArray() {
-    var args = [];
-    for (var _i = 0; _i < arguments.length; _i++) {
-        args[_i] = arguments[_i];
-    }
+function retornarArray(...args) {
     return args;
 }
-var numeros = retornarArray(1, 2, 4, 5, 6, 345, 623);
+const numeros = retornarArray(1, 2, 4, 5, 6, 345, 623);
 console.log(numeros);
-console.log(retornarArray.apply(void 0, numbers));
-var tupla = [1, 'abc', false];
+console.log(retornarArray(...numbers));
+const tupla = [1, 'abc', false];
 function tuplaParam1(a, b, c) {
-    console.log("1) " + a + " " + b + " " + c);
+    console.log(`1) ${a} ${b} ${c}`);
 }
-tuplaParam1.apply(void 0, tupla);
-function tuplaParam2() {
-    var params = [];
-    for (var _i = 0; _i < arguments.length; _i++) {
-        params[_i] = arguments[_i];
-    }
+tuplaParam1(...tupla);
+function tuplaParam2(...params) {
     // console,log(Array,isArray(params))
-    console.log("2) " + params[0] + " " + params[1] + " " + params[2]);
+    console.log(`2) ${params[0]} ${params[1]} ${params[2]}`);
 }
-tuplaParam2.apply(void 0, tupla);
-var caracteristicas = ['Motor Zetec 1.8', 2020];
+tuplaParam2(...tupla);
+const caracteristicas = ['Motor Zetec 1.8', 2020];
 // const motor = caracteristicas[0]
 // const ano = caracteristicas[1]
-var motor = caracteristicas[0], ano = caracteristicas[1];
+const [motor, ano] = caracteristicas;
 console.log(motor);
 console.log(ano);
-var item = {
+const item = {
     nome: 'SSD 480GB',
     preco: 200,
     caracteristicas: {
         w: 'Importado'
     }
 };
-var nomeItem = item.nome;
-var precoItem = item.preco;
+const nomeItem = item.nome;
+const precoItem = item.preco;
 console.log(nomeItem);
 console.log(precoItem);
-var n = item.nome, p = item.preco, w = item.caracteristicas.w;
+const { nome: n, preco: p, caracteristicas: { w } } = item;
 console.log(n);
 console.log(p);
 console.log(w);
-var usuarioID = 'SuporteCod3r';
-var notificacoes = '19';
+const usuarioID = 'SuporteCod3r';
+const notificacoes = '19';
 // const boasVindas = 'Boas Vindas' + usuarioID +
 //                     'Notificações: ' + notificacoes
-var boasVindas = "\nBoas vindas " + usuarioID + ",\nNotifica\u00E7\u00F5es: " + (parseInt(notificacoes) > 9 ? '+9' : notificacoes) + "\n";
+const boasVindas = `
+Boas vindas ${usuarioID},
+Notificações: ${parseInt(notificacoes) > 9 ? '+9' : notificacoes}
+`;
 console.log(boasVindas);
-console.log("" + (1 + 1) * 30);
-console.log("Motor: " + caracteristicas[0]);
-var dobro = function (valor) { return valor * 2; };
+console.log(`${(1 + 1) * 30}`);
+console.log(`Motor: ${caracteristicas[0]}`);
+const dobro = (valor) => valor * 2;
 console.log(dobro(10));
-var dizerOla = function (nome) {
-    if (nome === void 0) { nome = 'Pessoa'; }
+const dizerOla = function (nome = 'Pessoa') {
     console.log('Olá', +nome);
 };
 dizerOla();
 dizerOla('Anna');
 var nums = [-3, 33, 38, 5];
-console.log(Math.min.apply(Math, nums));
+console.log(Math.min(...nums));
 var array = [55, 20];
-array.push.apply(array, nums);
+array.push(...nums);
 console.log(array);
 var notas = [8.5, 6.3, 9.4];
-var nota1 = notas[0], nota2 = notas[1], nota3 = notas[2];
+const [nota1, nota2, nota3] = notas;
 console.log(nota1, nota2, nota3);
 var cientista = { primeiroNome: 'Will', experiencia: 12 };
-var primeiroNome = cientista.primeiroNome, experiencia = cientista.experiencia;
+var { primeiroNome, experiencia } = cientista;
 console.log(primeiroNome, experiencia);
