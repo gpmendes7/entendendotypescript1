@@ -100,3 +100,26 @@ var caracteristicas = ['Motor Zetec 1.8', 2020];
 var motor = caracteristicas[0], ano = caracteristicas[1];
 console.log(motor);
 console.log(ano);
+var item = {
+    nome: 'SSD 480GB',
+    preco: 200,
+    caracteristicas: {
+        w: 'Importado'
+    }
+};
+var nomeItem = item.nome;
+var precoItem = item.preco;
+console.log(nomeItem);
+console.log(precoItem);
+var n = item.nome, p = item.preco, w = item.caracteristicas.w;
+console.log(n);
+console.log(p);
+console.log(w);
+var usuarioID = 'SuporteCod3r';
+var notificacoes = '19';
+// const boasVindas = 'Boas Vindas' + usuarioID +
+//                     'Notificações: ' + notificacoes
+var boasVindas = "\nBoas vindas " + usuarioID + ",\nNotifica\u00E7\u00F5es: " + (parseInt(notificacoes) > 9 ? '+9' : notificacoes) + "\n";
+console.log(boasVindas);
+console.log("" + (1 + 1) * 30);
+console.log("Motor: " + caracteristicas[0]);
