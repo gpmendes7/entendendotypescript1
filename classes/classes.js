@@ -33,12 +33,15 @@ class Produto {
         this.preco = preco;
         this.desconto = desconto;
     }
+    precoComDesconto() {
+        return this.preco * (1 - this.desconto);
+    }
     resumo() {
-        return `${this.nome} custa R$${this.preco} (${this.desconto * 100}% off)`;
+        return `${this.nome} custa R$${this.precoComDesconto()} (${this.desconto * 100}% off)`;
     }
 }
 const prod1 = new Produto('Caneta Bic Preta', 4.20);
-prod1.desconto = 0.06;
+prod1.desconto = 0.05;
 console.log(prod1.resumo());
 const prod2 = new Produto('Caderno Escolar', 18.80, 0.15);
 console.log(prod2.resumo());
