@@ -109,13 +109,13 @@ class Ferrari extends Carro {
         super('Ferrari', modelo, velocidadeMaxima)
     }
 
-    public acelerar(): number {
-        return this.alterarVelocidade(20)
-    }
+    // public acelerar(): number {
+    //     return this.alterarVelocidade(20)
+    // }
 
-    public frear(): number {
-        return this.alterarVelocidade(-15)
-    }
+    // public frear(): number {
+    //     return this.alterarVelocidade(-15)
+    // }
 }
 
 const f40 = new Ferrari('F40', 324)
@@ -146,3 +146,43 @@ console.log(pessoa1.idade)
 
 pessoa1.idade = -3
 console.log(pessoa1.idade)
+
+class Matematica {
+    static PI: number = 3.1416
+
+    static areaCirc(raio: number): number {
+        return this.PI * raio * raio
+    }
+}
+
+console.log(Matematica.areaCirc(4))
+
+abstract class Calculo {
+    protected resultado: number = 0
+
+    abstract executar(...numeros: number[]): void
+
+    getResultado(): number {
+        return this.resultado
+    }
+}
+
+class Soma extends Calculo {
+    executar(...numeros: number[]): void {
+        this.resultado = numeros.reduce((t, a) => t + a)
+    }
+}
+
+class Multiplicacao extends Calculo {
+    executar(...numeros: number[]): void {
+        this.resultado = numeros.reduce((t, a) => t * a)
+    }
+}
+
+let c1 = new Soma()
+c1.executar(2, 3, 4, 5)
+console.log(c1.getResultado())
+
+c1 = new Multiplicacao()
+c1.executar(2, 3, 4, 5)
+console.log(c1.getResultado())
