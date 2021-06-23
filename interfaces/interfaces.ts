@@ -85,7 +85,7 @@ class RealABC implements ABC {
 abstract class AbstrataABD implements A, B {
   a(): void {}
   b(): void {}
-  abstract d(): void {}
+  abstract d(): void
 }
 
 interface Object {
