@@ -125,7 +125,7 @@ novaFila.imprimir()
 
 // const outraFila = new Fila<boolean>(true, false)
 
-type Par<C. V> = { chave: C, valor: V}
+type Par<C, V> = { chave: C, valor: V}
 
 class Mapa<C, V> {
   itens: Array<Par<C,V>> = new Array<Par<C,V>>()
