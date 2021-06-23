@@ -84,7 +84,7 @@ const d1 = new Data(1, 2, 2020)
 const d2 = new Data(5, 5, 2022)
 console.log(new DiferencaEntreDatas(d1, d2).executar())
 
-class Fila<T> {
+class Fila<T extends number | string> {
   private fila: Array<T>
 
   constructor(...args: T[]) {
@@ -119,3 +119,8 @@ console.log(fila.proximo())
 console.log(fila.proximo())
 console.log(fila.proximo())
 fila.imprimir()
+
+const novaFila = new Fila<number>(1,2,3)
+novaFila.imprimir()
+
+// const outraFila = new Fila<boolean>(true, false)
